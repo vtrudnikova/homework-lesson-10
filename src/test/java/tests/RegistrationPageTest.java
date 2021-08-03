@@ -62,4 +62,36 @@ public class RegistrationPageTest extends TestBase {
                     .checkForm(state + " " + city);
         });
     }
+    @Test()
+    @DisplayName("Регистрация пользователя")
+    void registerUserFail() {
+        step("Открыть страницу с формой регистрации", () -> {
+            registrationPage.openRegistrationPage();
+        });
+        step("Заполнить форму регистрации", () -> {
+            registrationPage.enterFirstNameAndLastName(firstName, lastName)
+                    .enterEmail(emailAddress)
+                    .selectGender(gender)
+                    .enterMobilePhone(mobilePhone)
+                    .selectDatOfBirth(day, month, year)
+                    .selectSubject(subject)
+                    .selectHobbies(hobbies)
+                    .uploadPicture(fileName)
+                    .enterAddress(address)
+                    .selectStateAndCity(state, city);
+        });
+        step("Проверить поля", () -> {
+            registrationPage.checkResultsTitle();
+            registrationPage.checkForm(firstName + " " + lastName)
+                    .checkForm(emailAddress)
+                    .checkForm(gender)
+                    .checkForm(mobilePhone)
+                    .checkForm(day + " " + month + "," + year)
+                    .checkForm(subject)
+                    .checkForm(hobbies)
+                    .checkForm(fileName)
+                    .checkForm(address)
+                    .checkForm(state + " " + city);
+        });
+    }
 }
