@@ -24,7 +24,7 @@ public class RegistrationPageTest extends TestBase {
     public String hobbies = "Reading";
     public String fileName = "test.png";
     public String address = faker.address().fullAddress();
-    public String state = "NCR";
+    public String state = "NCR1";
     public String city = "Gurgaon";
 
     @Test()
